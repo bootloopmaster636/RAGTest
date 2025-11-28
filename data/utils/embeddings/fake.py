@@ -1,5 +1,5 @@
 from typing import override
-from logic.embeddings.i_embeddings import IEmbedding
+from data.utils.embeddings.i_embeddings import IEmbedding
 import random
 
 class FakeEmbedding(IEmbedding):

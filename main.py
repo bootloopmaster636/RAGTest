@@ -1,7 +1,7 @@
 from data.access.document_store import DocumentStore
 from logic.workflow.simple_workflow import SimpleWorkflow
 from logic.api_controller import ApiController
-from logic.embeddings.fake import FakeEmbedding
+from data.utils.embeddings.fake import FakeEmbedding
 import uvicorn
 
 def main():

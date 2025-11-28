@@ -1,7 +1,7 @@
 from qdrant_client import QdrantClient
 from qdrant_client.models import PointStruct, VectorParams, Distance
 from config import QDRANT_COLLECTION_NAME, QDRANT_URL
-from logic.embeddings.i_embeddings import IEmbedding
+from data.utils.embeddings.i_embeddings import IEmbedding
 import uuid
 
 class DocumentStore:

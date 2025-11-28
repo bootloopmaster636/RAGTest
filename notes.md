@@ -11,13 +11,14 @@ The code in main.py (i renamed it to `reference.py.bak`) now splitted into few c
 |   |   |- Document Store: This file manages access to qdrant/in memory storage
 |   |
 |   |- entity
-|       |- API request object: this is just a copy paste from original python script
-|
-|- logic
-|   |- embeddings
-|   |   |- embedding interface: this is an interface to interact with embedding function
-|   |   |- fake embedding: this is where the fake embedding function reside
+|   |   |- API request object: this is just a copy paste from original python script
 |   |
+|   |- utils
+|       |- embeddings
+|           |- embedding interface: this is an interface to interact with embedding function
+|           |- fake embedding: this is where the fake embedding function reside
+|   
+|- logic
 |   |- API Controller: this is a class that provide API enpoint via fastapi 
 |   |
 |   |- workflow
