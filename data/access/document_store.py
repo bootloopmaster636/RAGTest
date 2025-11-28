@@ -21,12 +21,10 @@ class DocumentStore:
     # if available. 
     def __init_collection(self):
         try:
-            has_collection = self.qdrant.collection_exists(collection_name=QDRANT_COLLECTION_NAME)
-            if has_collection == False:
-                _ = self.qdrant.create_collection(
-                    collection_name=QDRANT_COLLECTION_NAME,
-                    vectors_config=VectorParams(size=128, distance=Distance.COSINE)
-                )
+            _ = self.qdrant.recreate_collection(
+                collection_name=QDRANT_COLLECTION_NAME,
+                vectors_config=VectorParams(size=128, distance=Distance.COSINE)
+            )
             self.use_qdrant = True
             print("Using Qdrant storage")
         except Exception as e:

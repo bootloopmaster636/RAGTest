@@ -45,3 +45,6 @@ This version separates responsibilities in the original file (`reference.py.bak`
 Each file has it own function described as above (main design decision section).
 The dependency injection pattern allows you to swap/test a class with different implementation.
 The variables is no longer global too. Everything is contained inside the respective class.
+
+## Changes from original source code
+- Qdrant doc_id is changed to uuidV4 instead of using doc length for improved ID uniqueness
