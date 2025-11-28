@@ -5,6 +5,7 @@ no need to run `fastapi` command
 
 ## Main design decision (sorry if this is too long, below is just a quick overview of the files 😅)
 The code in main.py (i renamed it to `reference.py.bak`) now splitted into few class/file
+```
 |- data
 |   |- access
 |   |   |- Document Store: This file manages access to qdrant/in memory storage
@@ -27,6 +28,7 @@ The code in main.py (i renamed it to `reference.py.bak`) now splitted into few c
 |
 |- Config: Configure things like qdrant collection name, etc. here
 |- Main: A main function to run them all
+```
 
 The code primarily uses dependency injection pattern to make swapping to other implementation
 easier. So... you can for example swap the fake embeddings with real one just by creating new embedding
