@@ -1,7 +1,9 @@
-from embeddings.i_embeddings import IEmbedding
+from typing import override
+from logic.embeddings.i_embeddings import IEmbedding
 import random
 
 class FakeEmbedding(IEmbedding):
+    @override
     def embed(self, text: str) -> list[float]:
         # Seed based on input so it's "deterministic"
         random.seed(abs(hash(text)) % 10000)

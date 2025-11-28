@@ -1,25 +1,25 @@
 from fastapi import FastAPI, HTTPException
 from config import FASTAPI_APP_TITLE
-from workflow.i_workflow import IWorkflow
-from entity.api_entity import DocumentRequest, QuestionRequest
-from document_store import DocumentStore
+from logic.workflow.i_workflow import IWorkflow
+from data.entity.api_entity import DocumentRequest, QuestionRequest
+from data.access.document_store import DocumentStore
 import time
 
 class ApiController:
     def __init__(self, workflow: IWorkflow, storage: DocumentStore):
-        self.app = FastAPI(title=FASTAPI_APP_TITLE)
-
-        self.app.post("/ask")(self.__ask_question)
-        self.app.post("/add")(self.__add_document)
-        self.app.get("/status")(self.__status)
-
         self.workflow = workflow
         self.storage = storage
+
+        self.app = FastAPI(title=FASTAPI_APP_TITLE)
+
+        _ = self.app.post("/ask")(self.__ask_question)
+        _ = self.app.post("/add")(self.__add_document)
+        _ = self.app.get("/status")(self.__status)
     
     def __ask_question(self, req: QuestionRequest):
         start = time.time()
         try:
-            result = self.workflow.chain.invoke({"question": req.question})
+            result = self.workflow.chain.invoke(input={"question": req.question})  # pyright: ignore[reportCallIssue]
             return {
                 "question": req.question,
                 "answer": result["answer"],

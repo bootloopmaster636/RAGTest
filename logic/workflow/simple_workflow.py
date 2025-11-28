@@ -1,7 +1,6 @@
-from workflow.i_workflow import IWorkflow
-from langgraph.graph import StateGraph, END
-from document_store import DocumentStore
-from embeddings.fake import FakeEmbedding
+from logic.workflow.i_workflow import IWorkflow
+from langgraph.graph import END, StateGraph
+from data.access.document_store import DocumentStore
 
 class SimpleWorkflow(IWorkflow):
     def __init__(self, storage: DocumentStore):
